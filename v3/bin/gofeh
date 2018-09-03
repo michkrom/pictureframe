@@ -1,0 +1,1 @@
+feh --slideshow-delay 60 --randomize --quiet --recursive --fullscreen --hide-pointer --auto-rotate --auto-zoom ~/Pictures
