@@ -1,9 +1,12 @@
 # read gpio pin state
 # rpin gpio#
-if [ ! -f /sys/class/gpio/gpio$1 ]; then
-  echo $1 > /sys/class/gpio/export
-  echo "in" > /sys/class/gpio/gpio$1/direction
+gpiofs=/sys/class/gpio
+pinfs=$gpiofs/gpio$1
+if [ ! -f $pinfs/value ]; then
+  echo $1 > $gpiofs/export
+  sleep 1
+  echo "in" > $pinfs/direction
 fi
-cat /sys/class/gpio/gpio$1/value
+cat $pinfs/value
 
-#echo $1 > /sys/class/gpio/unexport
+#echo $1 > $gpiofs/unexport

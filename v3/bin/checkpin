@@ -1,0 +1,3 @@
+wt=$2
+if [ -z $wt ]; then wt=0; fi
+while true; do echo -n `gpiord $1`; sleep $wt; done
